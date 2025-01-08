@@ -1,0 +1,13 @@
+version: '3.5'
+
+services:
+  api:
+    build: .
+    container_name: enrichment
+    environment:
+      - STREAM_LOG_LEVEL=DEBUG
+      - FILE_LOG_LEVEL=ERROR
+    networks:
+      - default
+    ports:
+      - 8080:8080

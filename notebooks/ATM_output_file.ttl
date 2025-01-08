@@ -1,0 +1,72 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://fokus.fraunhofer.de/PISTIS> a owl:Ontology .
+
+<http://fokus.fraunhofer.de/PISTIS#driver_ID> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:integer .
+
+<http://fokus.fraunhofer.de/PISTIS#duration> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:long .
+
+<http://fokus.fraunhofer.de/PISTIS#end_After> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:float .
+
+<http://fokus.fraunhofer.de/PISTIS#end_Altitude> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:float .
+
+<http://fokus.fraunhofer.de/PISTIS#end_At> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:dateTime .
+
+<http://fokus.fraunhofer.de/PISTIS#end_Position> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:string .
+
+<http://fokus.fraunhofer.de/PISTIS#event_Details> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:string .
+
+<http://fokus.fraunhofer.de/PISTIS#event_ID> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:integer .
+
+<http://fokus.fraunhofer.de/PISTIS#event_Type> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:string .
+
+<http://fokus.fraunhofer.de/PISTIS#marker_Position> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:string .
+
+<http://fokus.fraunhofer.de/PISTIS#start_After> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:float .
+
+<http://fokus.fraunhofer.de/PISTIS#start_Altitude> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:string .
+
+<http://fokus.fraunhofer.de/PISTIS#start_At> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:dateTime .
+
+<http://fokus.fraunhofer.de/PISTIS#start_Position> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:string .
+
+<http://fokus.fraunhofer.de/PISTIS#trip_ID> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:string .
+
+<http://fokus.fraunhofer.de/PISTIS#vehicle_ID> a owl:DatatypeProperty ;
+    rdfs:domain <http://fokus.fraunhofer.de/PISTIS#Event> ;
+    rdfs:range xsd:integer .
+
+<http://fokus.fraunhofer.de/PISTIS#Event> a owl:Class .
+

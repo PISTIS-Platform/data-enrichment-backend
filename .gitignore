@@ -1,0 +1,8 @@
+*.ipynb
+*.ipynb_checkpoints
+*.db
+*.db-journal
+*.pyc
+*.env
+__pycache__/
+notebooks/venv

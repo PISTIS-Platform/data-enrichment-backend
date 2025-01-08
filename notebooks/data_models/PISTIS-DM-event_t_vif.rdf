@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/muh63680/ontologies/2024/9/untitled-ontology-30/"
+     xml:base="http://www.semanticweb.org/muh63680/ontologies/2024/9/untitled-ontology-30/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://fokus.fraunhofer.de/PISTIS"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#driver_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#driver_ID">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#duration -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#duration">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#end_After -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#end_After">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#end_Altitude -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#end_Altitude">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#end_At -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#end_At">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#end_Position -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#end_Position">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#event_Details -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#event_Details">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#event_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#event_ID">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#event_Type -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#event_Type">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#marker_Position -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#marker_Position">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#start_After -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#start_After">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#start_Altitude -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#start_Altitude">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#start_At -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#start_At">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#start_Position -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#start_Position">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#trip_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#trip_ID">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#vehicle_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://fokus.fraunhofer.de/PISTIS#vehicle_ID">
+        <rdfs:domain rdf:resource="http://fokus.fraunhofer.de/PISTIS#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://fokus.fraunhofer.de/PISTIS#Event -->
+
+    <owl:Class rdf:about="http://fokus.fraunhofer.de/PISTIS#Event"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

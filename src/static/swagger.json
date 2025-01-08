@@ -1,0 +1,451 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "PISTIS Data Enrichment",
+    "description": "\n[**Imprint**](https://xmanai-compliance-xmanai.apps.osc.fokus.fraunhofer.de/imprint)\n\n[**Protection of Data Privacy**](https://xmanai-compliance-xmanai.apps.osc.fokus.fraunhofer.de/privacy)\n\n",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://develop.pistis-market.eu/srv/data-enrichment-backend/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Harvesting Workflow",
+      "description": "Queries related to the harvesting workflow"
+    },
+    {
+      "name": "Data Model",
+      "description": "Updating the datamodel stored in the backend"
+    }
+  ],
+  "paths": {
+    "/get_asset": {
+      "get": {
+        "tags": [
+          "Harvesting Workflow"
+        ],
+        "summary": "Receive a dataset from the Data Storage.",
+        "parameters": [
+          {
+            "name": "dataset_id",
+            "in": "query",
+            "description": "The id of a dataset from the metadata catalog",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "distribution_id",
+            "in": "query",
+            "description": "The id of a distribution from the metadata catalog",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "file_type",
+            "in": "query",
+            "description": "file type of the file",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "file_type"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File received.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/asset_nometadata"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Submitted data is not in the right format!",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized Access!",
+            "content": {}
+          },
+          "500": {
+            "description": "Internal Server Error!",
+            "content": {}
+          },
+          "502": {
+            "description": "Gateway Error!",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "key": []
+          }
+        ]
+      }
+    },
+    "/livesearch_data_model": {
+      "post": {
+        "tags": [
+          "Harvesting Workflow"
+        ],
+        "summary": "Receive all properties of the data model corresponding to your string input.",
+        "requestBody": {
+          "description": "String for the live search",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sequence": {
+                    "type": "string",
+                    "example": "id"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved all search results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/search_results"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Submitted data is not in the right format!",
+            "content": {}
+          },
+          "500": {
+            "description": "Internal Server Error!",
+            "content": {}
+          },
+          "502": {
+            "description": "Gateway Error!",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "key": []
+          }
+        ],
+        "x-codegen-request-body-name": "sequence"
+      }
+    },
+    "/save_asset": {
+      "post": {
+        "tags": [
+          "Harvesting Workflow"
+        ],
+        "summary": "Save the dataset in the data storage.",
+        "parameters": [
+          {
+            "name": "dataset_id",
+            "in": "query",
+            "description": "The id of a dataset from the metadata catalog",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "distribution_id",
+            "in": "query",
+            "description": "The distribution id of a file in the dataset with id 'dataset_id'",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Metadata and data model of the resulting dataset",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "metadata": {
+                    "$ref": "#/components/schemas/metadata"
+                  },
+                  "data_model": {
+                    "$ref": "#/components/schemas/data_model"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The dataset was successfully saved inside the data storage.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "asset_uuid": {
+                      "type": "string",
+                      "example": "a94f0776-7e13-479c-ab95-51fa90158b69"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Dataset created"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Submitted data is not in the right format!",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized Access!",
+            "content": {}
+          },
+          "500": {
+            "description": "Internal Server Error!",
+            "content": {}
+          },
+          "502": {
+            "description": "Gateway Error!",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "key": []
+          }
+        ],
+        "x-codegen-request-body-name": "dataset_metadata"
+      }
+    },
+    "/update_datamodel": {
+      "post": {
+        "tags": [
+          "Data Model"
+        ],
+        "deprecated": true,
+        "summary": "Update the data model.",
+        "responses": {
+          "200": {
+            "description": "Successfully updated the data model",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Data model updated successfully!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized Access!",
+            "content": {}
+          },
+          "500": {
+            "description": "Internal Server Error!",
+            "content": {}
+          },
+          "502": {
+            "description": "Gateway Error!",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "key": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "asset_nometadata": {
+        "required": [
+          "data",
+          "data_model"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/data"
+          },
+          "data_model": {
+            "$ref": "#/components/schemas/data_model"
+          }
+        }
+      },
+      "asset": {
+        "required": [
+          "data",
+          "data_model",
+          "metadata"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/data"
+          },
+          "data_model": {
+            "$ref": "#/components/schemas/data_model"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/metadata"
+          }
+        }
+      },
+      "metadata": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "c437ba6d-b613-4f58-9bd6-78b5e30e4e6f"
+          }
+        }
+      },
+      "data_model": {
+        "required": [
+          "columns"
+        ],
+        "type": "object",
+        "properties": {
+          "columns": {
+            "type": "array",
+            "example": [
+              {
+                "dataType": "String",
+                "name": "Username"
+              },
+              {
+                "dataType": "String",
+                "name": "Identifier"
+              },
+              {
+                "dataType": "String",
+                "name": "First Name"
+              },
+              {
+                "dataType": "String",
+                "name": "Last Name"
+              }
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "data": {
+        "required": [
+          "rows"
+        ],
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": "array",
+            "example": [
+              [
+                "booker12",
+                "9012",
+                "Rachel",
+                "Booker"
+              ],
+              [
+                "grey07",
+                "2070",
+                "Laura",
+                "Grey"
+              ],
+              [
+                "johnson81",
+                "4081",
+                "Craig",
+                "Johnson"
+              ],
+              [
+                "jenkins46",
+                "9346",
+                "Mary",
+                "Jenkins"
+              ],
+              [
+                "smith79",
+                "5079",
+                "Jamie",
+                "Smith"
+              ]
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "search_results": {
+        "required": [
+          "properties"
+        ],
+        "type": "object",
+        "properties": {
+          "properties": {
+            "type": "array",
+            "example": [
+              {
+                "dataType": "Integer",
+                "name": "ParentGroupID"
+              },
+              {
+                "dataType": "Integer",
+                "name": "GroupID"
+              }
+            ],
+            "items": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "key": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "x-original-swagger-version": "2.0"
+}
